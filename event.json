@@ -1,0 +1,65 @@
+{
+  "body": null,
+  "headers": {
+    "Accept": "*/*",
+    "Host": "localhost:3000",
+    "User-Agent": "curl/7.81.0",
+    "X-Forwarded-Port": "3000",
+    "X-Forwarded-Proto": "http"
+  },
+  "httpMethod": "GET",
+  "isBase64Encoded": false,
+  "multiValueHeaders": {
+    "Accept": [
+      "*/*"
+    ],
+    "Host": [
+      "localhost:3000"
+    ],
+    "User-Agent": [
+      "curl/7.81.0"
+    ],
+    "X-Forwarded-Port": [
+      "3000"
+    ],
+    "X-Forwarded-Proto": [
+      "http"
+    ]
+  },
+  "multiValueQueryStringParameters": null,
+  "path": "/NhbCzOZqILY",
+  "pathParameters": {
+    "proxy": "NhbCzOZqILY"
+  },
+  "queryStringParameters": null,
+  "requestContext": {
+    "accountId": "123456789012",
+    "apiId": "1234567890",
+    "domainName": "localhost:3000",
+    "extendedRequestId": null,
+    "httpMethod": "GET",
+    "identity": {
+      "accountId": null,
+      "apiKey": null,
+      "caller": null,
+      "cognitoAuthenticationProvider": null,
+      "cognitoAuthenticationType": null,
+      "cognitoIdentityPoolId": null,
+      "sourceIp": "127.0.0.1",
+      "user": null,
+      "userAgent": "Custom User Agent String",
+      "userArn": null
+    },
+    "path": "/{video_id}",
+    "protocol": "HTTP/1.1",
+    "requestId": "4869bbb4-2800-414d-b7c5-8afd52c81851",
+    "requestTime": "18/Mar/2023:02:49:46 +0000",
+    "requestTimeEpoch": 1679107786,
+    "resourceId": "123456",
+    "resourcePath": "/{video_id}",
+    "stage": "Prod"
+  },
+  "resource": "/{video_id}",
+  "stageVariables": null,
+  "version": "1.0"
+}

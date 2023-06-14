@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: "AWS::Serverless-2016-10-31"
+Description: "yt-dlp --dump-json. Specific options."
+Resources:
+  YtDlpInfoFunction:
+    Type: "AWS::Serverless::Function"
+    Properties:
+      CodeUri: .
+      Runtime: "python3.8"
+      Handler: "app.lambda_handler"
+      MemorySize: 128
+      Timeout: 30
+      Events:
+        YtDlpInfoApi:
+          Type: "Api"
+          Properties:
+            Path: "/{proxy+}"
+            Method: "GET"
+# Outputs:
+#   YtDlpInfoApi:
+#     Description: 'API Gateway endpoint URL for yt-dlp info.'
+#     Value: !Sub 'https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/{proxy+}'
