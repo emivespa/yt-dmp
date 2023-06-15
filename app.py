@@ -3,18 +3,16 @@ import json
 sys.path.insert(0, './deps')
 import yt_dlp
 
-# TODO: CORS?
-# TODO: work with both
-
 def lambda_handler(event, context):
     try:
-        proxy = event['pathParameters']['proxy']
-        proxy = proxy.split('=')[-1] # Accept both video links and IDs.
-        url = f'https://www.youtube.com/watch?v={proxy}'
+        url = event['pathParameters']['proxy']
         ydl_opts = {
             'dumpjson': True,
             'geo_bypass': True,
             'no_call_home': True,
+            'skip_download': True,
+            'verbose': True,
+            'extract_flat': 'in_playlist', # FIXME: is this enough? should it be True?
         }
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             data = ydl.extract_info(url, download=False)
