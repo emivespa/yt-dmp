@@ -9,7 +9,7 @@ default: ;
 ################################################################################
 
 .PHONY: deploy
-deploy:
+deploy: deps
 	sam deploy \
 		--template-file template.yaml \
 		--stack-name $$STACK_NAME \
@@ -17,13 +17,13 @@ deploy:
 		--
 
 .PHONY: start-api
-start-api:
+start-api: deps
 	sam local start-api \
 		--debug \
 		--
 
 .PHONY: invoke
-invoke:
+invoke: deps
 	sam local invoke 'YtDlpInfoFunction' \
 		--debug \
 		--template-file template.yaml \
@@ -32,8 +32,9 @@ invoke:
 
 ################################################################################
 
-FORCE: ;
-deps: FORCE requirements.txt
+# FORCE: ;
+# deps: FORCE requirements.txt
+deps: requirements.txt
 	rm deps -rf
 	mkdir -p deps
 	pip install -r ./requirements.txt -t ./deps
