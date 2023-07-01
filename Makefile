@@ -9,12 +9,16 @@ default: ;
 ################################################################################
 
 .PHONY: deploy
-deploy: deps
+deploy: x.zip
 	sam deploy \
 		--template-file template.yaml \
 		--stack-name $$STACK_NAME \
 		--capabilities CAPABILITY_IAM \
+		--resolve-s3
 		--
+
+x.zip: app.py deps
+	zip -r x.zip app.py deps
 
 .PHONY: start-api
 start-api: deps
@@ -24,7 +28,7 @@ start-api: deps
 
 .PHONY: invoke
 invoke: deps
-	sam local invoke 'YtDlpInfoFunction' \
+	sam local invoke 'YtDmpFunction' \
 		--debug \
 		--template-file template.yaml \
 		-e event.json \
